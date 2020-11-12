@@ -1,0 +1,20 @@
+Задание 1.
+Написать SQL-запрос для получения результирующего списка с полями Author, Birthday, Book. 
+В списке должны присутствовать все авторы, которые встречаются и в таблице A и в таблице B, 
+а также все имеющиеся сведения о них из таблиц A и B.
+
+select coalesce(a.Author, b.Author), a.Birthdate, b.Book from a
+full join b on b.Author = a.Author
+
+Задание 2.
+
+Те же исходные таблицы, см. Задание 1.
+Получить результирующий список с полями Author, Birthday, Book. 
+В списке должны присутствовать только те авторы, которые написали более одной книги.
+
+select coalesce(a.Author, c.Author), a.Birthdate, c.Book from a 
+full join (
+select Author, count(Book) from b 
+group by Author
+having count (Book) > 1) h on h.Author = a.Author 
+inner join b c on c.Author = h.Author
