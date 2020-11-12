@@ -11,7 +11,7 @@ import static java.util.stream.Collectors.toList;
 public class StreamExample {
 
     public static void main(String[] args) {
-        String string = "aaa, abc, rey, qaq, abcd, wer, ghf, bvn, anr, abbbbbb";
+        String string = "aaa, abc, rey, qaq, abcd, wer, ghf, bvn, buba, anr, abbbbbb, abc";
         List<String> list = new ArrayList<>(Arrays.asList(string.split(" ")));
         Map<Object, List<String>> map = list.stream().flatMap(s -> Stream.of(s.split("[^a-zA-Z]"))).
                 filter(s -> s.length() > 0).sorted().
@@ -30,6 +30,6 @@ public class StreamExample {
         Map<Object, List<String>> sortedMap = new TreeMap<>(map);
         List<String> together = sortedMap.entrySet().stream().flatMap(characterListEntry -> characterListEntry.getValue().stream()).collect(toList());
         string = together.toString();
-        System.out.println(string);//output: abbbbbb, abcd, aaa, abc, anr, bvn, ghf, qaq, rey, wer
+        System.out.println(string);//output: abbbbbb, abcd, aaa, abc, abc, anr, buba, bvn, ghf, qaq, rey, wer
     }
 }
