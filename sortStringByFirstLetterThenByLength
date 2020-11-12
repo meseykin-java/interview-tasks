@@ -14,7 +14,7 @@ public class StreamExample {
         String string = "aaa, abc, rey, qaq, abcd, wer, ghf, bvn, anr, abbbbbb";
         List<String> list = new ArrayList<>(Arrays.asList(string.split(" ")));
         Map<Object, List<String>> map = list.stream().flatMap(s -> Stream.of(s.split("[^a-zA-Z]"))).
-                filter(s -> s.length() > 0).
+                filter(s -> s.length() > 0).sorted().
                 sorted((o1, o2) -> {
                     int len1 = o1.length();
                     int len2 = o2.length();
