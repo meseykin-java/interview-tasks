@@ -1,0 +1,67 @@
+/*
+Задание 3.
+Имеется  массив A элементов (a(i)) длиной n.
+1
+2
+…
+m
+m+1
+m+2
+…
+n
+
+Нужно переставить первые m элементов в конец массива:
+m+1
+m+2
+…
+n
+1
+2
+…
+m
+
+После перестановки порядок следования элементов должен сохраниться.
+Требуется предложить такой алгоритм перестановки элементов, чтобы общее количество действий K было пропорционально длине массива n, т.е., K = a*n, где a – некая константа.
+В алгоритме можно пользоваться только простыми переменными (скалярными). Использование дополнительных вспомогательных массивов не допускается.
+Число m – произвольное, т.е. куски {1, 2, .., m} и {m+1, m+2, .., n} массива имеют в общем случае разную длину.
+*/
+
+public class core {
+
+    public static int moveElementsToTheEnd(int arr[], int n, int k)
+    {
+        int ops = 0;
+        for (int i = 0; i < k; i++) {
+            int x = arr[0];
+            for (int j = 0; j < n - 1; ++j) {
+                arr[j] = arr[j + 1];
+                ops++;
+            }
+            arr[n - 1] = x;
+            ops++;
+        }
+
+        return ops;
+    }
+
+    public static void main(String ars[]) {
+        int a[] = new int[]{1,2,3,4,5,6,7,8,9,10};
+        int n = a.length;
+        int position = 4;
+        int ops = moveElementsToTheEnd(a, n, position);
+
+        for (int i = 0; i < n; ++i)
+            System.out.print(a[i] + " ");
+        System.out.println("count of operations to constant is " + ops/position);
+    }
+
+    public static int main() {
+        return 0;
+    }
+
+    public static void main(String str) {
+
+    }
+
+}
+
