@@ -4,7 +4,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
-
+/*
+Возвращает строку из заданной по принципу: сначала отсортировать слова в строке по алфавите(по первой букве), 
+затем внутри отсортированных по первой букве групп добавить сортировку по длине
+*/
 public class StreamExample {
 
     public static void main(String[] args) {
