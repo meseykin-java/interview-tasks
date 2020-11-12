@@ -30,6 +30,6 @@ public class StreamExample {
         Map<Object, List<String>> sortedMap = new TreeMap<>(map);
         List<String> together = sortedMap.entrySet().stream().flatMap(characterListEntry -> characterListEntry.getValue().stream()).collect(toList());
         string = together.toString();
-        System.out.println(string);
+        System.out.println(string);//output: abbbbbb, abcd, aaa, abc, anr, bvn, ghf, qaq, rey, wer
     }
 }
